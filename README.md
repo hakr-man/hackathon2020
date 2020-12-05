@@ -7,3 +7,5 @@ To run, download and extract the files. Then, double click 20-20.vbs
 
 # Credit
 Music - https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1300012
+
+#Feel free to poke around our code!
