@@ -35,9 +35,14 @@ nSeconds = 25
 with HTABox("lightBlue",100,250,0,630)
     .document.title = "Break Time!"
     .msg.innerHTML = sMessage
+	Dim oShell 
+	Set oShell = Wscript.CreateObject("WScript.Shell")
+	oShell.Run "music.vbs"   
+	Set oShell = Nothing 
     do until .done.value or (nMinutes + nSeconds < 1)
         .msg.innerHTML = sMessage & "<br>" & nMinutes & ":" & Right("0"&nSeconds, 2) _
         & " remaining</b></font><br>"
+		'run music vbs script from same folder
         wsh.sleep 1000 ' milliseconds
         nSeconds = nSeconds - 1
         if nSeconds < 0 then 
