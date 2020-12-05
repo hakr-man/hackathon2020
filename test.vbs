@@ -2,12 +2,13 @@ Option Explicit
 Dim Title,ws,nMinutes,nSeconds,sMessage
 Title = "Counting Down to Next Break"
 Set ws = CreateObject("wscript.Shell")
-nMinutes = 0
-nSeconds = 10
+nMinutes = 20
+nSeconds = 0
 sMessage = "<font color=Red size=2><b>Counting Down to Next Break"
+
 'create pop up window and ask to loop until shutdown
 
-
+Do
 'Open a chromeless window with message
 with HTABox("lightBlue",100,250,0,630)
     .document.title = "Counting Down Notification to Break"
@@ -50,7 +51,17 @@ with HTABox("lightBlue",100,250,0,630)
     .close
 end with
 ws.Popup "BREAK TIME IS OVER !","5",Title,0+48 
- 
+ 'confirm repeat
+If vbYes = MsgBox("Do you want to continue?", vbYesNo, "Repeat?") Then
+    'Do things
+	nMinutes = 20
+	nSeconds = 0
+	sMessage = "<font color=Red size=2><b>Counting Down to Next Break"
+Else
+    'Don't do things
+	WScript.Quit
+End If
+Loop While 1>0
 '*****************************************************************
 Function HTABox(sBgColor, h, w, l, t)
     Dim IE, HTA, sCmd, nRnd
@@ -83,7 +94,7 @@ Function HTABox(sBgColor, h, w, l, t)
                 & "<center><span id=msg>&nbsp;</span><br>" _
                 & "<input type=button id=btn1 value=' OK ' "_
                 & "onclick=done.value=true><center></body>"
-                HTABox.btn1.focus
+                
                 Exit Function
             End If
         Next
