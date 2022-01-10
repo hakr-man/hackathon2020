@@ -87,7 +87,7 @@ Function HTABox(sBgColor, h, w, l, t)
                 HTABox.document.title = "HTABox"
                 HTABox.document.write _
                 "<HTA:Application contextMenu=no border=thin " _
-                & "minimizebutton=no maximizebutton=no sysmenu=no SHOWINTASKBAR=no >" _
+		& "minimizebutton=yes maximizebutton=no sysmenu=no SHOWINTASKBAR=yes >" _
                 & "<body scroll=no style='background-color:" _
                 & sBgColor & ";font:normal 10pt Arial;" _
                 & "border-Style:inset;border-Width:3px'" _
